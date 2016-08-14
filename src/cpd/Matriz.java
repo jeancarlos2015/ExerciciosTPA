@@ -24,8 +24,8 @@ public class Matriz {
         lista = new ArrayList();
     }
     
-    
-    final Elemento getElemento(int linha, int coluna){
+    //equivalente ao searchOfRowColun feito na versão em C
+    final Elemento searchOfRowColun(int linha, int coluna){
         for(Elemento elemento:lista){
             if(elemento.isPosition(linha, coluna)){return elemento;}
         }
@@ -34,7 +34,7 @@ public class Matriz {
     
     public void set(int linha, int coluna, int elemento){
         if(elemento!=0){
-            Elemento ele = getElemento(linha, coluna);
+            Elemento ele = searchOfRowColun(linha, coluna);
             if(ele!=null){
                 ele.setValor(elemento);
             }else{
@@ -46,13 +46,11 @@ public class Matriz {
     }
     
     public Integer get(int linha, int coluna){
-        for(Elemento elemento:lista){
-            if(elemento.isPosition(linha, coluna)){return elemento.getValor();}
-        }
+        Elemento elemento;
         if(linha < this.getLinha() && coluna < this.getColuna() && linha >= 0 && coluna >= 0){
-            Elemento elemento =  getElemento(linha, coluna);
+            elemento =  searchOfRowColun(linha, coluna);
             if(elemento==null){return 0;}
-            
+            return elemento.getValor();
         }
         return null;
     }
