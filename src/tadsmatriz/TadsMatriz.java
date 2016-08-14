@@ -65,6 +65,15 @@ public class TadsMatriz {
         operacao_matriz.setMatriz(A);
         Matriz C = operacao_matriz.somar(A);
         inOut.imprime(C);
+        
+        C = operacao_matriz.multiplicar(B);
+        inOut.imprime(C);
+        
+        C = operacao_matriz.multiplicar(10);
+        inOut.imprime(C);
+        
+        C = operacao_matriz.transposta();
+        inOut.imprime(C);
     }
     
 }
